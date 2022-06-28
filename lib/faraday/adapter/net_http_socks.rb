@@ -1,8 +1,5 @@
 module Faraday
-  class Adapter < Middleware
-
-    register_middleware net_http_socks: :NetHttpSocks
-
+  class Adapter
     class NetHttpSocks < Faraday::Adapter::NetHttp
 
       SOCKS_SCHEMES = ['socks', 'socks4', 'socks5']
@@ -21,7 +18,11 @@ module Faraday
         end
 
         net_http_class.new(env[:url].host, env[:url].port)
-      end
-    end
-  end
+      end #net_http_connection
+
+    end #NetHttpSocks
+
+  end #Adapter
 end
+
+Faraday::Adapter.register_middleware(net_http_socks: Faraday::Adapter::NetHttpSocks)

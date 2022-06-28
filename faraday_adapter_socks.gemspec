@@ -19,10 +19,11 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.add_dependency 'faraday', ['>= 0.7.4', '< 2.0']
+  spec.add_dependency 'faraday', ['>= 0.8', '< 2.0']
   spec.add_dependency "socksify", "~> 1.7"
 
-  spec.add_development_dependency "bundler", "~> 1.17"
+  spec.add_development_dependency "appraisal"
+  spec.add_development_dependency "bundler", ['>= 1.17', '< 2.0']
   spec.add_development_dependency "rake", "~> 13.0"
   spec.add_development_dependency "rspec", "~> 3.9"
   spec.add_development_dependency 'pry', '~> 0.12'
